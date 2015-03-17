@@ -103,7 +103,12 @@ void sendSignal(int neuron){
   int startLed = neuron*axonLeds;
   int endLed = (neuron+1)*axonLeds;
   for(int i = startLed; i<endLed; i++){
-    //do shiny things
+    strip.setPixelColor(i, 0,255,0);
+    if(i >= startLed + 2){
+      strip.setPixelColor(i-2, 0,0,0);
+    }
+    strip.show();
+    delay(500);
   }
 }
 
